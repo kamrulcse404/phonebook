@@ -25,4 +25,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('contact/create', [ContactController::class, 'create'])->name('contact.create')->middleware('auth');
 
-Route::get('contact/store', [ContactController::class, 'store'])->name('contact.store')->middleware('auth');
+Route::post('contact/store', [ContactController::class, 'store'])->name('contact.store')->middleware('auth');
