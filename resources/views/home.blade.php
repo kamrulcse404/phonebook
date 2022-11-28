@@ -16,7 +16,7 @@
 
                         <a href="{{ route('contact.create') }}" class="btn btn-outline-primary mb-3">Add Contacts</a>
 
-                        <form accept="{{route('home')}}" method="GET" role="search">
+                        <form accept="{{ route('home') }}" method="GET" role="search">
                             <div class="input-group">
                                 <input type="search" name="search" placeholder="search mobile" class="form-control">
                                 <button class="btn btn-primanry" type="submit">Search</button>
@@ -55,10 +55,14 @@
                                 @endunless
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>{{ $contacts->links() }}</p>
         </div>
     </div>
 @endsection
