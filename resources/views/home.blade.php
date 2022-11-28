@@ -14,7 +14,14 @@
                             </div>
                         @endif
 
-                        <a href="{{ route('contact.create') }}" class="btn btn-outline-primary">Add Contacts</a>
+                        <a href="{{ route('contact.create') }}" class="btn btn-outline-primary mb-3">Add Contacts</a>
+
+                        <form accept="{{route('home')}}" method="GET" role="search">
+                            <div class="input-group">
+                                <input type="search" name="search" placeholder="search mobile" class="form-control">
+                                <button class="btn btn-primanry" type="submit">Search</button>
+                            </div>
+                        </form>
 
                         <table class="table">
                             <thead>
@@ -28,18 +35,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-                                @foreach ($contacts as $contact)
-                                    <tr>
-                                        <td>{{ $contact->id }}</td>
-                                        <td>{{ $contact->name }}</td>
-                                        <td>{{ $contact->mobile }}</td>
-                                        <td>{{ $contact->email }}</td>
-                                        <td>{{ $contact->created_at }}</td>
-                                        <td>{{ $contact->updated_at }}</td>
-                                    </tr>
-                                @endforeach
-                                {{-- @unless(count($contacts) == 0)
+                                @unless(count($contacts) == 0)
                                     @foreach ($contacts as $contact)
                                         <tr>
                                             <td>{{ $contact->id }}</td>
@@ -56,7 +52,7 @@
                                             <h4>No Contacts found</h4>
                                         </td>
                                     </tr>
-                                @endunless --}}
+                                @endunless
                             </tbody>
                         </table>
 

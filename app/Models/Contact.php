@@ -20,4 +20,10 @@ class Contact extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function scopeFilter($query, array $filters){
+        if ($filters['search'] ?? false) {
+            $query->where('mobile', 'like', '%' . request('search') . '%');
+        }
+    }
 }

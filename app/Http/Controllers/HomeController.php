@@ -30,7 +30,7 @@ class HomeController extends Controller
         // dd(Contact::where('user_id',$id));
 
         return view('home',[
-            'contacts' => Contact::where('user_id',$id)->get()
+            'contacts' => Contact::where('user_id',$id)->latest()->filter(request(['search']))->get()
         ]);
     }
 }
